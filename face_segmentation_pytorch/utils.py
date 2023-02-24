@@ -78,6 +78,7 @@ def load_model_parameters(
         print(f"No model parameters found in {params_dir}!")
         online_name = os.path.basename(statedict_online)
         target_path = os.path.join(params_dir, online_name)
+        os.makedirs(params_dir, exist_ok=True)
         print("Downloading", online_name, "to", target_path)
         wget.download(statedict_online, target_path)
         print("Extracting statedict from zip file...")

@@ -83,8 +83,8 @@ from PIL import Image
 import face_segmentation_pytorch as fsp
 
 # create model and load pretrained parameters
-model = fsp.FaceSegmentationNet()
-fsp.load_model_parameters(model, MODEL_PARAMS_DIR)
+model = fsp.model.FaceSegmentationNet()
+fsp.utils.load_model_parameters(model, MODEL_PARAMS_DIR)
 model.eval()
 
 # load image
@@ -99,21 +99,18 @@ with torch.no_grad():
 
 * To create plots like the above, the `plt_debug` function can be used (requires to install [matplotlib](https://matplotlib.org/)).
 
+* To convert the `.caffemodel` into a PyTorch `state_dict`:
+
 * The snippet below loads a `caffemodel` and convert into a PyTorch model and saves the corresponding `state_dict`:
+
 
 ```python
 import torch
-from .model import FaceSegmentationNet
-from . import load_caffemodel_as_statedict
+import face_segmentation_pytorch as fsp
 
-model = FaceSegmentationNet()
-statedict = load_caffemodel_as_statedict(<PATH_TO_CAFFEMODEL>)
-model.load_state_dict(statedict, strict=True)
+# create model and load pretrained parameters
+model = fsp.model.FaceSegmentationNet()
+fsp.utils.load_model_parameters(model, <CAFFEMODEL_DIR>, caffemodel_name=<CAFFEMODEL_NAME>)
 torch.save(model.state_dict(), OUTPATH)
 ```
-
-
-
-
-
 
