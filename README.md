@@ -74,7 +74,7 @@ To extract masks instead, add the `MASK_THRESHOLD=0.5` (any threshold between 0 
 
 ### Python Examples:
 
-The [`__main__`](face_segmentation_pytorch/__main__.py) contains an example on how to extract heatmaps and masks from Python. A reduced example is as follows:
+The [`__main__`](face_segmentation_pytorch/__main__.py) module contains an example on how to extract heatmaps and masks from Python. A reduced example is as follows:
 
 ```python
 import torch
