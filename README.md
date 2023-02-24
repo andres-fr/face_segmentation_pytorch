@@ -21,7 +21,7 @@ Direct advantages:
 * More flexible inference, including different image shapes (although they are recommended to be in the ballpark of `400x400`) and the possibility of getting heatmaps instead of masks.
 * **Zero** dependency on Caffe. Pure and plain PyTorch
 
-While the main intent for this repository is inference, flexible support for CPU and CUDA is given, and with minimal extensions can be used for training and finetuning (PRs are welcome, see TODO list at the bottom).
+While the main intent for this repository is inference, flexible support for CPU and CUDA is given, and with minimal extensions can be used for training and finetuning (PRs are welcome).
 
 Here is a visualization of the architecture using the [Netscope](https://ethereon.github.io/netscope/quickstart.html) `.prototxt` visualizer:
 
