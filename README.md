@@ -72,6 +72,8 @@ python -m face_segmentation_pytorch MODEL_PARAMS_DIR=<WORKSPACE> IMGS_DIR=<MY_IM
 To extract masks instead, add the `MASK_THRESHOLD=0.5` (any threshold between 0 and 1 works).
 
 
+### Python Examples:
+
 The [`__main__`](face_segmentation_pytorch/__main__.py) contains an example on how to extract heatmaps and masks from Python. A reduced example is as follows:
 
 ```python
@@ -92,10 +94,6 @@ with torch.no_grad():
     t = model.img_to_input(img, pre_normalize=True).unsqueeze(0)
     out = model(t, as_pmap=True)[0]
 ```
-
-### Python Examples:
-
-
 
 
 * To create plots like the above, the `plt_debug` function can be used (requires to install [matplotlib](https://matplotlib.org/)).
