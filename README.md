@@ -12,7 +12,7 @@ PyTorch implementation of the [YuvalNirkin/face_segmentation](https://github.com
     }
 ```
 
-This repository includes the PyTorch version of their pre-trained model, and is mainly intended to facilitate mask renderings like the following (images from the [iBugMask dataset](https://ibug.doc.ic.ac.uk/resources/ibugmask/), downlaoded [here](https://github.com/hhj1897/face_parsing#ibugmask-dataset)):
+This repository includes the PyTorch version of their pre-trained model, and is mainly intended to facilitate mask renderings like the following (images from the [iBugMask dataset](https://ibug.doc.ic.ac.uk/resources/ibugmask/), downloaded [here](https://github.com/hhj1897/face_parsing#ibugmask-dataset)):
 
 ![gallery](assets/gallery.jpg)
 
