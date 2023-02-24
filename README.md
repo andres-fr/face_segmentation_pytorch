@@ -28,6 +28,7 @@ Here is a visualization of the architecture using the [Netscope](https://ethereo
 ![network diagram](assets/net_diagram.png)
 
 And [here](face_segmentation_pytorch/model.py) the corresponding PyTorch implementation.
+The model parameters have been converted to a PyTorch statedict and released [here](https://github.com/andres-fr/face_segmentation_pytorch/releases).
 
 
 -----------------------------------------------
