@@ -101,31 +101,37 @@ def load_model_parameters(
 # ##############################################################################
 # # PREPROCESSING
 # ##############################################################################
-def normalize_arr(arr, float_dtype=np.float32, out_range=(0, 255)):
+def normalize_range(x, float_dtype=np.float32, out_range=(0, 255)):
     """
-    :param arr: Array of any shape
+    :param x: Array or tensor of any shape
     :param out_range: Pair with ``(min, max)`` range of output normalized array
       (both min and max included).
     :returns: Array of same shape and dtype as input, with values stretched
       to span out_range. If ``arr`` has a constant value, the output will be
       set to the minimum ``out_range`` value.
     """
+    if isinstance(x, np.ndarray):
+        cast_fn = np.ndarray.astype
+    elif isinstance(x, torch.Tensor):
+        cast_fn = torch.Tensor.to
+    else:
+        raise RuntimeError("Only np.ndarray and torch.Tensor supported!")
+    #
     out_min, out_max = out_range
     out_span = out_max - out_min
     assert out_min < out_max, "out_min < out_max expected!"
     #
-    ori_dtype = arr.dtype
-    mn, mx = arr.min(), arr.max()
-    if mn != mx:
-        arr_float = float_dtype(arr)
-        arr_float -= mn
-        arr_float *= (out_span / mx)
-        arr_float += out_min
-        return arr_float.astype(ori_dtype)
+    ori_dtype = x.dtype
+    if x.min() != x.max():
+        x_float = cast_fn(x, float_dtype)
+        x_float -= x_float.min()
+        x_float *= (out_span / x_float.max())
+        x_float += out_min
+        return cast_fn(x, ori_dtype)
     else:
         # if min==max, normalized version is out_min
-        arr.fill(out_min)
-        return arr
+        x = (x * 0) + out_min
+        return x
 
 
 # ##############################################################################

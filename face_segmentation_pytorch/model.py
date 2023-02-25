@@ -16,7 +16,7 @@ instead of logit feature maps.
 import numpy as np
 import torch
 #
-from .utils import normalize_arr
+from .utils import normalize_range
 
 
 # ##############################################################################
@@ -118,7 +118,7 @@ class FaceSegmentationNet(torch.nn.Module):
         assert c == 3, "3 Channels expected!"
         # optionally pre-normalize to 0-255
         if pre_normalize:
-            arr = normalize_arr(arr, out_range=(0, 255))
+            arr = normalize_range(arr, out_range=(0, 255))
         # normalize, reshape and convert to tensor
         arr -= cls.MEAN_BGR
         arr = arr.transpose((2, 0, 1))
