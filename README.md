@@ -18,7 +18,7 @@ This repository includes the PyTorch version of their pre-trained model, and is 
 
 
 Direct advantages:
-* More flexible inference, including different image shapes (although they are recommended to be in the ballpark of `400x400`) and the possibility of getting heatmaps instead of masks.
+* More flexible inference, including different image shapes (although they are recommended to be in the ballpark of `500x500`, see [source](https://github.com/YuvalNirkin/face_segmentation/blob/6d9fc81a32e396bcafae6ba61318a23427f6aa98/interfaces/python/face_seg.py#L9)) and the possibility of getting heatmaps instead of masks.
 * **Zero** dependency on Caffe. Pure and plain PyTorch
 
 While the main intent for this repository is inference, flexible support for CPU and CUDA is given, and with minimal extensions can be used for training and finetuning (PRs are welcome).
