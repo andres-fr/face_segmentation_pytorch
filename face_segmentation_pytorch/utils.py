@@ -18,6 +18,8 @@ import torch
 import wget
 import zipfile
 from PIL import Image, ImageColor
+#
+from . import caffe_pb2
 
 
 # ##############################################################################
@@ -82,7 +84,7 @@ def load_model_parameters(
         print("Downloading", online_name, "to", target_path)
         wget.download(statedict_online, target_path)
         print("Extracting statedict from zip file...")
-        with zipfile.ZipFile(target_path,"r") as zip_ref:
+        with zipfile.ZipFile(target_path, "r") as zip_ref:
             zip_ref.extractall(params_dir)
         os.remove(target_path)
         # now file should exist
