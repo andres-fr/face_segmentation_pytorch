@@ -70,7 +70,9 @@ This package can be used from CLI to extract heatmaps or masks from a set of ima
 python -m face_segmentation_pytorch MODEL_PARAMS_DIR=<WORKSPACE> IMGS_DIR=<MY_IMAGES>
 ```
 
-To extract masks instead, add the `MASK_THRESHOLD=0.5` (any threshold between 0 and 1 works).
+Note that, if the model parameters are not present in the given directory, the library will attempt to download them from [here](https://github.com/andres-fr/face_segmentation_pytorch/releases), so you just need to provide a directory that is convenient, and then reuse it to prevent further downloads.
+
+To extract masks instead of the heatmaps, add the `MASK_THRESHOLD=0.5` (any threshold between 0 and 1 works).
 
 
 ### Python Examples:
@@ -99,7 +101,6 @@ with torch.no_grad():
 
 * To create plots like the above, the `plt_debug` function can be used (requires to install [matplotlib](https://matplotlib.org/)).
 
-* To convert the `.caffemodel` into a PyTorch `state_dict`:
 
 * The snippet below loads a `caffemodel` and convert into a PyTorch model and saves the corresponding `state_dict`:
 
